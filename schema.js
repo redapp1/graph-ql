@@ -1,6 +1,15 @@
 import { gql } from 'apollo-server-express'
+import userModel from './models'
 
 export const typeDefs = gql`
+ type User {
+    id: ID
+    name: String
+    age: Int
+    email: String
+    friends: [User]
+  }
+
   type Query {
     users: [User]
   }
@@ -9,7 +18,7 @@ export const typeDefs = gql`
 export const resolvers = {
     Query: {
         users() {
-            return "This will soon return users!"
+            return userModel.list()
         }
     }
 }
