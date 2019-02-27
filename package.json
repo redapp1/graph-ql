@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "babel-node index.js"
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:api": "nodemon --exec 'babel-node index.js'",
+    "dev:json": "json-server --watch db.json"
   },
   "keywords": [],
   "author": "",
